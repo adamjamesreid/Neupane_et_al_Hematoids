@@ -43,11 +43,16 @@ STAR version STAR-2.7.10b
 
 /mnt/beegfs6/home3/reid/ajr236/projects/surani/GBP0029/starsolo/130723/blood_analysis/GBP0029_blood_analysis_f1_cluster12.R
 
-## Differention gene expression analysis
+## Differential gene expression analysis
 
 /mnt/beegfs6/home3/reid/ajr236/projects/surani/GBP0029/starsolo/130723/paper_figures/GBP0029_endo_blood_prog_comparison.R
 
 ## Bar plots of cell counts
 
 /mnt/beegfs6/home3/reid/ajr236/projects/surani/GBP0029/starsolo/130723/gene_expression_analysis.R
+
+## CellPhoneDB analysis
+
+## Cardiomyocyte trajectory analysis
+
 
