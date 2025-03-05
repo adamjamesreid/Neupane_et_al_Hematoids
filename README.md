@@ -29,10 +29,12 @@ STAR version STAR-2.7.10b
 
 ## Initial filtering and QC:
 
-/mnt/beegfs6/home3/reid/ajr236/projects/surani/GBP0029/starsolo/GBP0029_starsolo_analysis_sctnew.R
+There was an initial processing of the data which ended with a scrublet analysis to idenitfy multiplets. This was somewhat convoluted and is excluded here. We then reprocessed the data from the StarSOLO output, excluding multiplets predicted in the previous round of analysis.
 
-/mnt/beegfs6/home3/reid/ajr236/projects/surani/GBP0029/starsolo/040723/GBP0029_starsolo_analysis_040723.R
+# Meta data from intial QC round with Scrublet analysis
+~/projects/surani/GBP0029/starsolo/130723/heo_filt_meta.tsv
 
+# Code to generate Seurat objects from STARSolo output and exclude multiplets 
 /mnt/beegfs6/home3/reid/ajr236/projects/surani/GBP0029/starsolo/130723/GBP0029_starsolo_multiple_assays.R
 
 ## Integration with CS12-16 cells from Xu et al. (2023) using Symphony 
