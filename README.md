@@ -37,6 +37,8 @@ There was an initial processing of the data which ended with a scrublet analysis
 
 Meta data from intial QC round with Scrublet analysis - heo_filt_meta.tsv
 
+Edited features file for STARSolo - features.edit.underscores.tsv
+
 Code to generate Seurat objects from STARSolo output and exclude multiplets  - GBP0029_starsolo_multiple_assays.R
 
 ## Integration with CS12-16 cells from Xu et al. (2023) using Symphony 
