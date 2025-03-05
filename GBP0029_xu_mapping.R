@@ -1,5 +1,11 @@
-# Here I am mapping the datasests to the Xu et al reference in order to show what 
-# sort of cells we have compared to in vivo embryos at a similar timepoint
+# GBP0029_xu_mapping.R
+
+# AUTHOR: Adam Reid
+# Copyright (C) 2025 University of Cambridge
+# This program is distributed under the terms of the GNU General Public License
+
+# Here I am mapping our datasests to the Xu et al reference in order to show what 
+# sort of cells we have, compared to in vivo embryos at a similar timepoint
 
 library(symphony)
 library(Seurat)
@@ -9,8 +15,6 @@ library(scmap) # Sankey diagrams
 library(pheatmap)
 
 set.seed(123)
-
-setwd('~/projects/surani/GBP0029/starsolo/130723/paper_figures')
 
 #################
 # FUNCTIONS
@@ -172,10 +176,6 @@ q1 + q2
 
 ggsave(q1, file="xu_ref_symphony_umap.pdf")
 
-#DimPlot(xu_seurat_filter, reduction="umap_symph", group.by="developmental.system",
-#        cols = custom_colors$discrete, label=TRUE, repel=TRUE, raster = FALSE,
-#        pt.size = 0.001) +xlim(-7, 12.3) +ylim(-10.71, 11.64)
-
 # Make combined cell type annotation for F1 (day 14 late)
 day14_df <- as.data.frame(heo_f1@active.ident)
 day14_df$new <- heo_f1@active.ident
@@ -191,9 +191,6 @@ day14_df$new <- gsub('Blood progenitors 2', 'Blood progenitors (HC)', day14_df$n
 
 heo_f1@meta.data$cell_type_combined <- day14_df$new
 DimPlot(heo_f1, group.by="cell_type_combined")
-# Make a heatmap showing the mapping between reference and query
-#f1_heatmap <- pheatmap(log(table(heo_f1@meta.data$cell_type_combined, heo_f1@meta.data$cell_type_pred_knn)+1), 
-#                       scale='none', cluster_rows=TRUE, cluster_cols = TRUE)
 
 # Calculaute proportion of cells in each reference class
 f1_heatmap <- pheatmap(table(heo_f1@meta.data$cell_type_combined, heo_f1@meta.data$cell_type_pred_knn)/rowSums(table(heo_f1@meta.data$cell_type_combined, heo_f1@meta.data$cell_type_pred_knn)), 
@@ -241,10 +238,6 @@ day14_early_df$new <- gsub('Mixed/cardiac mesoderm', 'Mixed mesoderm', day14_ear
 
 heo_g1@meta.data$cell_type_combined <- day14_early_df$new
 DimPlot(heo_g1, group.by="cell_type_combined")
-
-# Make a heatmap showing the mapping between reference and query
-#g1_heatmap <- pheatmap(log(table(heo_g1@active.ident, heo_g1@meta.data$cell_type_pred_knn)+1), scale='none',
-#         cluster_rows=TRUE, cluster_cols = TRUE)
 
 # Calculaute proportion of cells in each reference class
 g1_heatmap <- pheatmap(table(heo_g1@meta.data$cell_type_combined, heo_g1@meta.data$cell_type_pred_knn)/rowSums(table(heo_g1@meta.data$cell_type_combined, heo_g1@meta.data$cell_type_pred_knn)), 
@@ -314,7 +307,7 @@ ggsave(umap_int_g1, file="heo_g1_xu_mapping_umap.pdf")
 
 
 ####
-# Try Sankey plot
+# Make a Sankey plot
 plot(getSankey(heo_f1@active.ident, heo_f1@meta.data$cell_type_pred_knn))
 
 plot(getSankey(heo_g1@active.ident, heo_g1@meta.data$cell_type_pred_knn))
@@ -390,8 +383,6 @@ for (x in cois) {
   
   all_top5_markers <- append(all_top5_markers, rownames(markers[1:5,]))
 }
-
-#unique(unlist(all_top5_markers))
 
 # Make and write out HC Xu-based dotplot
 dp_heo_f1_hc_subset <- DotPlot(heo_f1_hc_subset, features=unique(unlist(all_top5_markers)), 
