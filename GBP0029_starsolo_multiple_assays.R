@@ -1,7 +1,7 @@
 # GBP0029_starsolo_multiple_assays.R
 
 # AUTHOR: Adam Reid
-# Copyright (C) 2023 University of Cambridge
+# Copyright (C) 2025 University of Cambridge
 # This program is distributed under the terms of the GNU General Public License
 
 # Re-process all the data, incorporate spliced, unspliced 'Velocyto' and 'Gene' assays from STARsolo
@@ -14,7 +14,6 @@ library(tidyverse)
 library(ggplot2)
 library(gridExtra)
 
-setwd("/mnt/home3/reid/ajr236/projects/surani/GBP0029/Neupane_peEBs_code/")
 set.seed(123)
 
 ## FUNCTIONS
