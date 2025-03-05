@@ -29,6 +29,8 @@ STAR version STAR-2.7.10b
 --runThreadN 10 
 ```
 
+The R scripts were developed in R studio are designed to be run interactively. They will require some adjustments to work in alternative environments e.g. packages will need to be installed and paths/filenames changed. If there is anything more complicated please contact ajr236@cam.ac.uk for assistance.
+
 ## Initial filtering and QC:
 
 There was an initial processing of the data which ended with a scrublet analysis to idenitfy multiplets. This was somewhat convoluted and is excluded here. We then reprocessed the data from the STARSolo output, excluding multiplets predicted in the previous round of analysis.
@@ -60,6 +62,6 @@ o_g1`
 
 ## Cardiomyocyte trajectory analysis
 
-
+GBP0029_blood_analysis_cardiomyocyte_trajectory.R
 
 
