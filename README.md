@@ -13,10 +13,12 @@ The primary data and the *.rds files of containing Seurat objects for each sampl
 The initial reads were processed using STARSolo. 
 
 Generated index using human genome GRCh38 gencode v43. 
-Fasta: GRCh38.primary_assembly.genome.fa, 
-GTF: gencode.v43.basic.annotation.gtf
+Fasta: `GRCh38.primary_assembly.genome.fa`, 
+GTF: `gencode.v43.basic.annotation.gtf`
 
 STAR solo parameters:
+
+```
 STAR version STAR-2.7.10b
 --soloFeatures Gene Velocyto 
 --soloType CB_UMI_Simple
@@ -25,7 +27,7 @@ STAR version STAR-2.7.10b
 --soloCellFilter EmptyDrops_CR 
 --soloMultiMappers EM 
 --runThreadN 10 
-
+```
 
 # Initial filtering and QC:
 
