@@ -1,4 +1,10 @@
-# Subcluster Blood Progenitors 1 (aka cluster 12) from F1 and look at pseudotime
+# GBP0029_blood_analysis_f1_cluster12.R
+
+# AUTHOR: Adam Reid
+# Copyright (C) 2025 University of Cambridge
+# This program is distributed under the terms of the GNU General Public License
+
+# Subcluster Blood Progenitors 1 (aka cluster 12) from F1 sample and look at pseudotime
 # to examine development from RUNX1- endothelial cells to RUNX1/CD34/CD45+ 
 # hematopoetic cells
 
@@ -9,8 +15,6 @@ library(SeuratWrappers)
 library(monocle3)
 
 set.seed(123)
-
-setwd('~/projects/surani/GBP0029/starsolo/130723/blood_analysis/')
 
 #################
 # FUNCTIONS
@@ -87,7 +91,7 @@ s.genes <- n2e(heo_f1_bp1, cc.genes$s.genes)
 g2m.genes <- n2e(heo_f1_bp1, cc.genes$g2m.genes)
 heo_f1_bp1 <- CellCycleScoring(heo_f1_bp1, s.features = s.genes, g2m.features = g2m.genes, set.ident = TRUE)
 RidgePlot(heo_f1_bp1, features = n2e(heo_f1_bp1, c("PCNA", "TOP2A", "MCM6", "MKI67")), ncol = 2)
-# The phases look well mised in what we might imagine will be pseudotime
+# The phases look well mixed in what we might imagine will be pseudotime
 heo_f1_bp1@meta.data$Phase <- factor(heo_f1_bp1@meta.data$Phase)
 DimPlot(heo_f1_bp1, group.by=c("Phase"))
 
@@ -151,7 +155,6 @@ cds <- preprocess_cds(cds, num_dim = 20)
 cds$sample_name <- c()
 
 cds <- cluster_cells(cds, reduction_method = "UMAP")
-#plot_cells(cds, color_cells_by = "partition")
 
 cds <- learn_graph(cds, use_partition=F)
 plot_cells(cds,
@@ -288,7 +291,7 @@ write.table(cds_pr_test_res[cds_pr_test_res$status=="OK" & cds_pr_test_res$q_val
 
 
 ######################
-# Save object for Jitesh
+# Save object
 
 saveRDS(heo_f1_bp1, "heo_f1_bp1.rds")
 
@@ -325,7 +328,7 @@ dp_goi_heo_f1_bp1 <- DotPlot(heo_f1_bp1, features=n2e(heo_f1_bp1, gois), assay="
   theme(axis.text.x = element_text(angle = 90, size = 20), axis.text.y = element_text(size=20), axis.title.x = element_blank(),
         axis.title.y = element_blank(), legend.text = element_text(size = 12), legend.title = element_text(size = 12))
 dp_goi_heo_f1_bp1
-ggsave(dp_goi_heo_f1_bp1, file="~ajr236/projects/surani/GBP0029/starsolo/130723/paper_figures/heo_f1_bp1_dotplot_goi.pdf", width=7, height=5)
+ggsave(dp_goi_heo_f1_bp1, file="heo_f1_bp1_dotplot_goi.pdf", width=7, height=5)
 
 
 ######################
@@ -351,7 +354,7 @@ plot_cells(cds_bif,
   label_cell_groups = FALSE,
            trajectory_graph_segment_size = 1) + scale_color_manual(values = custom_colors$discrete) +
          theme(legend.position = "none")
-ggsave("../paper_figures/f1_c12_bif_traj.pdf")
+ggsave("f1_c12_bif_traj.pdf")
 
 # Choose node 1 (can't seem to do this with arguments)
 cds_bif <- order_cells(cds_bif)
@@ -391,12 +394,12 @@ cds_bif_toe <- cds_bif[rowData(cds_bif)$gene_short_name %in% gois_toe,
 plot_genes_in_pseudotime(cds_bif_calf,
                          color_cells_by="ident",
                          min_expr=0.5) + scale_color_manual(values = c("#FFC312", "#C4E538", "#FDA7DF"))
-ggsave("../paper_figures/f1_c12_calf_traj_genes.pdf", width=5, height=20)
+ggsave("f1_c12_calf_traj_genes.pdf", width=5, height=20)
 
 plot_genes_in_pseudotime(cds_bif_toe,
                          color_cells_by="ident",
                          min_expr=0.5) + scale_color_manual(values = c("#FFC312", "#12CBC4", "#FDA7DF"))
-ggsave("../paper_figures/f1_c12_toe_traj_genes.pdf", width=5, height=20)
+ggsave("f1_c12_toe_traj_genes.pdf", width=5, height=20)
 
 # Call DE genes in pseudotime
 cds_bif_pr_test_res <- graph_test(cds_bif, neighbor_graph="principal_graph", 
@@ -406,7 +409,7 @@ cds_bif_pr_test_res <- graph_test(cds_bif, neighbor_graph="principal_graph",
 de_genes_bif <- subset(cds_bif_pr_test_res, cds_bif_pr_test_res$q_value < 0.01)
 de_genes_bif$gene_name <- e2n(heo_f1_bp1, rownames(de_genes_bif))
 
-write.table(de_genes_bif, file="../paper_figures/heo_f1_blood_cluster_trajectory_genes.txt", sep="\t", quote=FALSE, row.names=TRUE, col.names=TRUE)
+write.table(de_genes_bif, file="heo_f1_blood_cluster_trajectory_genes.txt", sep="\t", quote=FALSE, row.names=TRUE, col.names=TRUE)
 
 
 cds_bif_pr_test_res[n2e(heo_f1_bp1, "CYBB"),]
