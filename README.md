@@ -27,34 +27,34 @@ STAR version STAR-2.7.10b
 --runThreadN 10 
 
 
-## Initial filtering and QC:
+# Initial filtering and QC:
 
 There was an initial processing of the data which ended with a scrublet analysis to idenitfy multiplets. This was somewhat convoluted and is excluded here. We then reprocessed the data from the StarSOLO output, excluding multiplets predicted in the previous round of analysis.
 
-# Meta data from intial QC round with Scrublet analysis
+## Meta data from intial QC round with Scrublet analysis
 heo_filt_meta.tsv
 
-# Code to generate Seurat objects from STARSolo output and exclude multiplets 
+## Code to generate Seurat objects from STARSolo output and exclude multiplets 
 GBP0029_starsolo_multiple_assays.R
 
-## Integration with CS12-16 cells from Xu et al. (2023) using Symphony 
+# Integration with CS12-16 cells from Xu et al. (2023) using Symphony 
 
-/mnt/beegfs6/home3/reid/ajr236/projects/surani/GBP0029/starsolo/130723/paper_figures/GBP0029_xu_mapping.R
+GBP0029_xu_mapping.R
 
-## Trajectory analysis using Mococle
+# Trajectory analysis using Mococle
 
 /mnt/beegfs6/home3/reid/ajr236/projects/surani/GBP0029/starsolo/130723/blood_analysis/GBP0029_blood_analysis_f1_cluster12.R
 
-## Differential gene expression analysis
+# Differential gene expression analysis
 
 /mnt/beegfs6/home3/reid/ajr236/projects/surani/GBP0029/starsolo/130723/paper_figures/GBP0029_endo_blood_prog_comparison.R
 
-## Bar plots of cell counts
+# Bar plots of cell counts
 
 /mnt/beegfs6/home3/reid/ajr236/projects/surani/GBP0029/starsolo/130723/gene_expression_analysis.R
 
-## CellPhoneDB analysis
+# CellPhoneDB analysis
 
-## Cardiomyocyte trajectory analysis
+# Cardiomyocyte trajectory analysis
 
 
