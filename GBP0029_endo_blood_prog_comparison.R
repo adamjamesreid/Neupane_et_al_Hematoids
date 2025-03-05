@@ -1,6 +1,12 @@
-# Comparison of endothelial blood progenitor cells bwtween -/+ and +/+ at days 8 and 14
+# GBP0029_endo_blood_prog_comparison.R
+
+# AUTHOR: Adam Reid
+# Copyright (C) 2025 University of Cambridge
+# This program is distributed under the terms of the GNU General Public License
+
+# Comparison of endothelial blood progenitor cells bwtween SB late and SB early at days 8 and 14
 # We want DEGs, GO terms and GO term plots
-# We have established the equivlaence of the endothelial blood cell clusters (at least at day 14)
+# We have established the equivlaence of the endothelial blood cell (EC) clusters (at least at day 14)
 # from Symphony mapping to Xu et al.
 
 library(Seurat)
@@ -11,7 +17,7 @@ library(DropletUtils)
 library(scuttle)
 library(EnhancedVolcano)
 
-setwd('/mnt/home3/reid/ajr236/projects/surani/GBP0029/starsolo/130723/paper_figures')
+set.seed(123)
 
 #################
 # FUNCTIONS
@@ -367,10 +373,6 @@ go_bar_plot <- function(fn, outfile, h, w, q=0.001) {
 
 go_bar_plot("blood_progenitors_de_genes_day8.up_final.dat", "blood_progenitors_de_genes_day8.up_final.pdf", 4, 7)
 go_bar_plot("blood_progenitors_de_genes_day8.down_final.dat", "blood_progenitors_de_genes_day8.down_final.pdf", 4, 7)
-
-#go_term_day14_negpos_filter = c("hepatocyte differentiation", "branching involved in blood vessel morph...",
-#                                "maternal process involved in parturition", "regulation of actin cytoskeleton organiz...",
-#                                "regulation of actin cytoskeleton organiz...")
 
 # N.b. I have manually filtered the results files here as Jitesh asked for plotting
 go_bar_plot("endo_blood_progenitors_de_genes_day14_ambient.up_final.filter.dat", "endo_blood_progenitors_de_genes_day14_ambient.up_final.pdf", 
