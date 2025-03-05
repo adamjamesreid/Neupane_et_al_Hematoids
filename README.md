@@ -53,6 +53,13 @@ run_topGO3.pl
 
 # CellPhoneDB analysis
 
+## Prepare data for CellPhoneDB analysis
+
+GBP0029_revision_cellphonedb.R
+
+## run cellphoneDB
+
+run_cellphonedb.py
 
 
 # Cardiomyocyte trajectory analysis
