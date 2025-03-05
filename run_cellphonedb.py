@@ -1,3 +1,9 @@
+# run_cellphonedb.py 
+
+# AUTHOR: Adam Reid
+# Copyright (C) 2025 University of Cambridge
+# This program is distributed under the terms of the GNU General Public License
+
 # Run CellPhoneDB 
 
 import pandas as pd
@@ -10,6 +16,7 @@ from cellphonedb.src.core.methods import cpdb_statistical_analysis_method # "met
 
 pd.set_option('display.max_columns', 100)
 
+# Sewt up command line argument parsing
 parser = argparse.ArgumentParser(description="Run CellPhoneDB")
 parser.add_argument("-d", help="File path for CellPhoneDB database zip file", default='v5.0.0/cellphonedb.zip')
 parser.add_argument("-m", help="Metadata file")
