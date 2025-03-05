@@ -1,5 +1,5 @@
 # Neupane_et_al_Hematoids
-R code invovled in processing, analysing and generating figures from single-cell RNA-seq data associated with Neupane et al. - "Three-dimensional multilineage organogenesis model captures early hematopoietic niche"
+R code invovled in processing, analysing and generating figures from single-cell RNA-seq data associated with Neupane et al. - "A post-implantation embryo model of human development with a definitive hematopoietic niche"
 
 The sample names used here are not used in the paper, the relationship is:
 
