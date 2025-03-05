@@ -186,8 +186,8 @@ day14_df$new <- gsub('Cardiomyocytes [1-5]', 'Cardiomyocytes', day14_df$new, per
 day14_df$new <- gsub('Erythroids [1-5]', 'Erythroids', day14_df$new, perl = TRUE)
 day14_df$new <- gsub('Hepatocytes [1-5]', 'Hepatocytes', day14_df$new, perl = TRUE)
 day14_df$new <- gsub('Hepatocytes [1-5]', 'Hepatocytes', day14_df$new, perl = TRUE)
-day14_df$new <- gsub('Blood progenitors 1', 'Blood progenitors (EC)', day14_df$new, perl = TRUE)
-day14_df$new <- gsub('Blood progenitors 2', 'Blood progenitors (HC)', day14_df$new, perl = TRUE)
+day14_df$new <- gsub('Blood progenitors 1', 'Blood progenitors (HC)', day14_df$new, perl = TRUE)
+day14_df$new <- gsub('Blood progenitors 2', 'Blood progenitors (EC)', day14_df$new, perl = TRUE)
 
 heo_f1@meta.data$cell_type_combined <- day14_df$new
 DimPlot(heo_f1, group.by="cell_type_combined")
