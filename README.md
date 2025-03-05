@@ -43,7 +43,7 @@ GBP0029_xu_mapping.R
 
 # Trajectory analysis using Mococle
 
-/mnt/beegfs6/home3/reid/ajr236/projects/surani/GBP0029/starsolo/130723/blood_analysis/GBP0029_blood_analysis_f1_cluster12.R
+GBP0029_blood_analysis_f1_cluster12.R
 
 # Differential gene expression analysis
 
