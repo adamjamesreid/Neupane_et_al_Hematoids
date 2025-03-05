@@ -3,10 +3,10 @@ R code invovled in processing, analysing and generating figures from single-cell
 
 The sample names used here are not used in the paper, the relationship is:
 
-heo_E1 - peEB day 8, SB-late
-heo_F1 - peEB day 14, SB-late
-heo_H10 - peEB day 8, SB-early
-heo_G1 - peEB day 14, SB-early
+* heo_E1 - peEB day 8, SB-late
+* heo_F1 - peEB day 14, SB-late
+* heo_H10 - peEB day 8, SB-early
+* heo_G1 - peEB day 14, SB-early
 
 The initial reads were processed using STARSolo. 
 
