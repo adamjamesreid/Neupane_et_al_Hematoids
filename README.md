@@ -29,41 +29,37 @@ STAR version STAR-2.7.10b
 --runThreadN 10 
 ```
 
-# Initial filtering and QC:
+## Initial filtering and QC:
 
-There was an initial processing of the data which ended with a scrublet analysis to idenitfy multiplets. This was somewhat convoluted and is excluded here. We then reprocessed the data from the StarSOLO output, excluding multiplets predicted in the previous round of analysis.
+There was an initial processing of the data which ended with a scrublet analysis to idenitfy multiplets. This was somewhat convoluted and is excluded here. We then reprocessed the data from the STARSolo output, excluding multiplets predicted in the previous round of analysis.
 
-## Meta data from intial QC round with Scrublet analysis
-heo_filt_meta.tsv
+Meta data from intial QC round with Scrublet analysis - heo_filt_meta.tsv
 
-## Code to generate Seurat objects from STARSolo output and exclude multiplets 
-GBP0029_starsolo_multiple_assays.R
+Code to generate Seurat objects from STARSolo output and exclude multiplets  - GBP0029_starsolo_multiple_assays.R
 
-# Integration with CS12-16 cells from Xu et al. (2023) using Symphony 
+## Integration with CS12-16 cells from Xu et al. (2023) using Symphony 
 
 GBP0029_xu_mapping.R
 
-# Trajectory analysis using Mococle
+## Trajectory analysis using Mococle
 
 GBP0029_blood_analysis_f1_cluster12.R
 
-# Differential gene expression analysis
+## Differential gene expression analysis
 
 GBP0029_endo_blood_prog_comparison.R
 
 run_topGO3.pl
 
-# CellPhoneDB analysis
+## CellPhoneDB analysis
 
-## Prepare data for CellPhoneDB analysis
+Prepare data for CellPhoneDB analysis - GBP0029_revision_cellphonedb.R
 
-GBP0029_revision_cellphonedb.R
+run cellphoneDB  - i.e. `python run_cellphonedb.py -d ~/projects/surani/GBP0029/starsolo/130723/cellphonedb/v5.0.0/cellphonedb.zip -m heo_g1_meta.tsv -c heo_g1.h5ad -e heo_g1_microenviroment.tsv -o cpdb_he
+o_g1`
 
-## run cellphoneDB
-
-run_cellphonedb.py
+## Cardiomyocyte trajectory analysis
 
 
-# Cardiomyocyte trajectory analysis
 
 
