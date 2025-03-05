@@ -51,11 +51,9 @@ GBP0029_endo_blood_prog_comparison.R
 
 run_topGO3.pl
 
-# Bar plots of cell counts
-
-/mnt/beegfs6/home3/reid/ajr236/projects/surani/GBP0029/starsolo/130723/gene_expression_analysis.R
-
 # CellPhoneDB analysis
+
+
 
 # Cardiomyocyte trajectory analysis
 
