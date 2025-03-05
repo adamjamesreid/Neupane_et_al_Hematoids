@@ -1,6 +1,10 @@
 #!/usr/bin/perl -w
-# run_topGO3.pl now outputs the up/down gene ids associated with each GO term
-# and runs all three types of GO at once
+
+# AUTHOR: Adam Reid
+# Copyright (C) 2025 University of Cambridge
+# This program is distributed under the terms of the GNU General Public License
+
+# Perl script to run topGO in R
 
 use strict;
 use Getopt::Long;
