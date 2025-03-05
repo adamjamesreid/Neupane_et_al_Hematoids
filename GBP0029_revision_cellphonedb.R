@@ -1,4 +1,10 @@
-# This is the refined CellPhoneDB script for producing figures for the manuscript revision - August 2024
+# GBP0029_revision_cellphonedb.R
+
+# AUTHOR: Adam Reid
+# Copyright (C) 2025 University of Cambridge
+# This program is distributed under the terms of the GNU General Public License
+
+# This is the refined CellPhoneDB script for producing figures for the manuscript revision
 
 ###########
 # LIBRARIES
@@ -15,8 +21,6 @@ library(SeuratDisk)
 ################
 # SETUP
 ################
-
-setwd('~/projects/surani/GBP0029/manuscript_revision_work/cellphonedb/')
 
 set.seed(123)
 
@@ -272,54 +276,6 @@ f1_wnt_hmap_g1res <- cpdb_heatmap(wnt_ints$V1, "cpdb_heo_f1/statistical_analysis
              f1_wnt_g1_present)
 ggsave(f1_wnt_hmap_g1res, file="f1_wnt_hmap_g1pres.pdf", width=width, height=12)
 ggsave(f1_wnt_hmap_g1res, file="f1_wnt_hmap_g1pres.png", width=width, height=12)
-
-
-## Create a heatmap for the best ranked F1 mesoderm:HC interactions including annotating
-## them with whether they are present amongst G1 interactions.
-#Heatmap code, including additional annotation column with whether the interaction is present in G1
-#cpdb_heatmap <- function(goi_list, cpdb_sig_means_file, additional_list, row_font_size = 10) {
-  
-#  cpdb_sig_means_file = "cpdb_heo_f1/statistical_analysis_significant_means_cpdb_heo_f1.txt" 
-#  goi_list <- hc_im_ints
-#  cpdb_sig_means <- read.table(cpdb_sig_means_file, header=TRUE, sep='\t')
-#  annotation_list = f1_sig_g1_present
-  
-#  sig_means_niche_genes <- subset(cpdb_sig_means, cpdb_sig_means$interacting_pair %in% goi_list)
-#  sig_means_niche_genes_table <- sig_means_niche_genes[,c(2,15:length(sig_means_niche_genes))]
-#  rownames(sig_means_niche_genes_table) <- sig_means_niche_genes_table$interacting_pair
-#  sig_means_niche_genes_table$interacting_pair <- c()
-#  sig_means_niche_genes_table[is.na(sig_means_niche_genes_table)] <- 0
-  
-  # Remove rows with no significant values
-#  sig_means_niche_genes_table <- subset(sig_means_niche_genes_table, 
-#                                        !(rowSums(sig_means_niche_genes_table == 0) == dim(sig_means_niche_genes_table)[2]))
-#  
-#  rank <- sig_means_niche_genes %>% select(interacting_pair, rank)
-#  rownames(rank) <- rank$interacting_pair
-#  rank$interacting_pair <- c()
-#  newCols <- colorRampPalette(grDevices::rainbow(length(unique(rank$rank))))
-#  mycolors <-colorRampPalette(brewer.pal(7,"YlGn"))(length(unique(rank$rank)))
-#  mycolors = rev(mycolors)
-#  names(mycolors) <- unique(rank$rank)
-#  mycolors <- list(rank = mycolors)
-#  
-#  if (length(annotation_list) > 0) {
-#    rank$present_in_g1 <- rownames(rank) %in% annotation_list
-#    rank$present_in_g1 <- as.factor(rank$present_in_g1)
-#  }
-#}
-
-pheatmap(sig_means_niche_genes_table, annotation_row=rank,
-         color = colorRampPalette(c("white", "red"))(100),
-         annotation_colors = mycolors, fontsize_row=4, fontsize_col=4)
-pheatmap(sig_means_niche_genes_table, annotation_row=rank,
-         color = colorRampPalette(c("white", "red"))(100),
-         annotation_colors = mycolors, file="f1_toprank_hmap.pdf",
-         fontsize_row=8, fontsize_col=8)
-pheatmap(sig_means_niche_genes_table, annotation_row=rank,
-         color = colorRampPalette(c("white", "red"))(100),
-         annotation_colors = mycolors, file="f1_toprank_hmap.png",
-         fontsize_row=8, fontsize_col=8)
 
 #################
 # Write out the session info to provide hope for future package nightmares
